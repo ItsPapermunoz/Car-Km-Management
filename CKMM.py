@@ -12,6 +12,11 @@ price_km = []
 car_capacity = 0
 # Functions
 
+
+def clear_screen():
+    print("\n" * 50)
+
+
 def check_file():
     # Checks if files exist already and reads data from them if they do, creates new files prompts the user for car capacity data and returns the values...
     try:
@@ -121,6 +126,37 @@ def delete_entry():
 
 
 def menu():
+    """This Function will run on the main loop, asking the user to select the desired option
+    and runing the designated functions, including one to exit the program"""
+    menu = True
+    print("1.New Entry")
+    print("2.Read Entries")
+    print("3.Delete Entry.")
+    print("4.Send feedback to Dev")
+    print("5.Credits")
+    print("6.Exit Program")
+    while menu:
+        try:
+            menu_selection = int(input("Please Select the number of the desired option... "))
+        except ValueError:
+            menu_selection = int(input("Only numbers are accepted in the selection please try again... "))
+        finally:
+            if menu_selection == 6:
+                menu = False
+        if menu_selection == 1:
+            new_entry()
+        elif menu_selection== 2:
+            read_entries()
+        elif menu_selection == 3:
+            delete_entry()
+        elif menu_selection == 4:
+            contact_us()
+        elif menu_selection == 5:
+            program_credits()
+        elif menu_selection == 6:
+            pass
+        else:
+            print("Option Not Recognized Please Try Again!")
 
 # Main Code
 
